@@ -1,0 +1,166 @@
+
+/* stil för sidhuvudet */
+header {
+    background-color: #444;
+    color: #fff;
+    padding: 0.5vh;
+    text-align: center;
+    min-height: 5vh;
+    max-height: 5vh;
+    font-size: 1.3vh;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+
+}
+
+/* Stil för extra navigering */
+.extraNavigation {
+    text-align: left;
+}
+
+/* Stil för menyknappen */
+.menu-button {
+    display: none;
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+
+
+
+
+/* Dold klass */
+.hidden {
+    display: none;
+    /* Dölj elementet och ge det högsta prioritet */
+}
+
+/* stil för navigationslänkar */
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+/* Stil för listelementen i navigationslänkarna */
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+/* Stil för länkarna i navigationslänkarna */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* Stil för extra navigationssektion */
+.extraNavigation {
+    text-align: left;
+}
+
+/* Stil för aktuell sida */
+.currentPage {
+    border: #f5f5f5 0.1vh solid;
+    padding: 0.5vh;
+    border-radius: 0.5vh;
+    box-shadow: 0 0 0.5vh rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+
+/* Stil för tabeller för smala skärmar */
+@media only screen and (max-width: 900px) {
+    /* Stil för navigationslänkar */
+    .nav-links {
+        font-size: smaller;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    /* Stil för varje länk i navigationsmenyn */
+    .nav-links li {
+        width: 100%;
+    }
+    }
+    
+
+/* Responsiv stil för skärmar upp till 1500px */
+@media only screen and (max-width: 1500px) {
+    /* Dölj alla listobjekt efter det första i navigeringsfältet */
+    #dropdownContainer {
+        display: none;
+    }
+}
+
+/* Responsiv stil för skärmar upp till 600px i höjd */
+@media only screen and (max-height: 600px) {
+    header,
+    footer {
+        font-size: 3vh;
+        margin: 0;
+        padding: 00.01vh;
+        min-height: 10vh;
+    }
+}
+
+/* Responsiv design för små skärmar */
+@media only screen and (max-width: 900px) {
+    /* Visa menyknappen */
+    .menu-button {
+        display: block !important;
+    }
+    /* Dölj navigationslänkar */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 40px;
+        background-color: rgba(68, 68, 68, 0.9);
+        padding: 0;
+        margin: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        width: 50vw;
+    }
+    /* Stil för varje länk */
+    .nav-links li {
+        display: block;
+        width: 40vw;
+    }
+    /* Stil för varje navigationslänk */
+    .nav-links a {
+        display: block;
+        padding: 10px;
+        color: white;
+    }
+    /* Stil för aktuell sida */
+    .currentPage {
+        border: none;
+        padding: 0vh;
+        border-radius: 0.5vh;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+        background-color: #344;
+    }
+}
+
+/* Responsiv design för stora skärmar */
+@media only screen and (min-width: 901px) {
+    /* Visa navigationslänkar */
+    .nav-links {
+        display: block !important;
+    }
+}

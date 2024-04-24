@@ -1,0 +1,61 @@
+
+
+/* Stil för alarm och goodalerts */
+.alert,
+.goodalert {
+    position: fixed;
+    padding: 2vw;
+    top: 19%;
+    left: 70%;
+    color: white;
+    font-size: 1.5vh;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+
+/* Stil för röd alert */
+.alert {
+    background-color: red;
+    animation: fadeOutBad 15s forwards;
+}
+
+/* Stil för grön alert */
+.goodalert {
+    background-color: green;
+    animation: fadeOutGood 5s forwards;
+}
+
+/* Keyframes för att fadea ut röd alert */
+@keyframes fadeOutBad {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    30% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Keyframes för att fadea ut grön alert */
+@keyframes fadeOutGood {
+    0% {
+        opacity: 0.5;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    30% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}

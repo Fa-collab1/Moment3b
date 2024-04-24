@@ -1,0 +1,78 @@
+
+/* stil för tabell */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 2vw;
+    font-size: smaller;
+
+}
+
+
+/* Stil för tabellhuvuden och tabellceller */
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Stil för tabellhuvuden */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Effekt vid hovring över tabellrader */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+/* Bredd på första kolumnen i workExperienceList */
+#workExperienceList th:nth-child(1),
+#workExperienceList td:nth-child(1) {
+    width: 20%;
+}
+
+/* Bredd på andra kolumnen i workExperienceList */
+#workExperienceList th:nth-child(2),
+#workExperienceList td:nth-child(2) {
+    width: 20%;
+}
+
+/* Bredd på tredje kolumnen i workExperienceList */
+#workExperienceList th:nth-child(3),
+#workExperienceList td:nth-child(3) {
+    width: 10%;
+}
+
+/* Bredd på fjärde kolumnen i workExperienceList */
+#workExperienceList th:nth-child(4),
+#workExperienceList td:nth-child(4) {
+    width: 10%;
+}
+
+/* Bredd på femte kolumnen i workExperienceList */
+#workExperienceList th:nth-child(5),
+#workExperienceList td:nth-child(5) {
+    width: 10%;
+}
+
+/* Bredd på sjätte kolumnen i workExperienceList */
+#workExperienceList th:nth-child(6),
+#workExperienceList td:nth-child(6) {
+    width: 30%;
+}
+
+
+
+
+/* Responsiv stil för skärmar upp till 1600px */
+@media only screen and (max-width: 1600px) {
+    table {
+        width: 100%;
+    }
+}
+

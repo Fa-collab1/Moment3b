@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add work experience</title>
+  <link rel="stylesheet" href="css/main.scss">
+  <script src="js/toggleMenu.js" defer></script>
+  <script src="js/api.js"></script>
+  <script src="js/add.js"></script>
+</head>
+<body>
+  <main>
+    <div class="Pagecontent">
+      <header>
+        <nav>
+          <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+          <ul class="nav-links">
+            <li><a href="/">Work experience</a></li>
+            <li><a href="/about">About work experience</a></li>
+            <li class="currentPage">Add item</li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="welcome">
+        <h1>Add Work Experience</h1>
+        <div class="alert"></div>
+        <form id="workExperienceForm" method="post">
+          <div class="form-group">
+            <label for="companyname">Company Name:</label>
+            <input type="text" id="companyname" name="companyname" required>
+          </div>
+          <div class="form-group">
+            <label for="jobtitle">Job Title:</label>
+            <input type="text" id="jobtitle" name="jobtitle" required>
+          </div>
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+          </div>
+          <div class="form-group">
+            <label for="startdate">Start Date:</label>
+            <input type="date" id="startdate" name="startdate" required>
+          </div>
+          <div class="form-group">
+            <label for="enddate">End Date:</label>
+            <input type="date" id="enddate" name="enddate">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+          </div>
+          <button type="submit">Add Work Experience</button>
+        </form>
+      </section>
+    </div>
+    <footer>
+      <p>&copy; <a href="mailto:joni2307@student.miun.se">joni2307@student.miun.se</a> All rights reserved.</p>
+    </footer>
+  </main>
+    
+</body>
+</html>
+<script>
+  addWorkExperienceItem();
+</script>
