@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work experience</title>
     <link rel="stylesheet" href="css/main.scss">
-    <script src="js/toggleMenu.js" defer></script>
+    <script src="js/toggleMenu.js"></script>
+    <script src="js/renderMessage.js"></script>
     <script src="js/api.js"></script>
     <script src="js/index.js" defer></script>
    
@@ -22,7 +23,7 @@
                     <ul class="nav-links">
                         <li class="currentPage"><a href="./">Work experience</a></li>
                         <li><a href="./about.html">About work experience</a></li>
-                        
+
                     </ul>
                 </nav>
             </header>
@@ -31,8 +32,10 @@
                 <h1>Work Experience</h1>
                 <div class="goodalert"></div>
                 <div class="alert"></div>
+                <div class="neutralalert"></div>
                 <ul class="extraNavigation">
-                    <li><a href="./add.html">Press here to add a new line</a></li>
+                    <li><a href="./add.html">Press here to add a new record</a></li>
+                    <li>Click on a <code>Company Name</code> to edit or delete a record</li>
                 </ul>
                 <table id="workExperienceList">
                     <thead>
@@ -49,7 +52,7 @@
                         <!-- Table body content will be added dynamically here -->
                     </tbody>
                 </table>
-                <p id="noWorkExperienceFound">No work experience found.</p>
+               
             </section>
         </div>
         <footer>

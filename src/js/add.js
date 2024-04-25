@@ -1,5 +1,6 @@
 // Function to fetch and display the work experience item
 async function addWorkExperienceItem() {
+    
     // Event listener for the form submit event
     document.querySelector('form')?.addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent default form submission behavior
@@ -14,14 +15,17 @@ async function addWorkExperienceItem() {
         // Send an HTTP POST request to the backend API endpoint
         const success = await addWorkExperience(workExperienceData);
 
-        // Display success message or handle errors
-        if (success) {
-            // Display success message or redirect to another page
-            console.log('Work experience added successfully');
-            window.location.href = '/'; // Redirect to the home page
-        } else {
-            // Display error message to the user
-            console.error('Failed to add work experience');
+        if (success.success) {
+
+            window.location.href = '/?s=1001    ';
+            try {
+                
+                renderMessage(message.status, message.errors); console.log("kattöga35");
+            }
+            catch (error) {
+                
+                renderMessage(500, 'An error occurred while deleting the work experience.');
+            }
         }
     });
 }

@@ -2,19 +2,26 @@
 
 /* Stil för alarm och goodalerts */
 .alert,
-.goodalert {
+.goodalert,.neutralalert {
     position: fixed;
     padding: 2vw;
-    top: 19%;
+    top: 10%;
     left: 70%;
     color: white;
     font-size: 1.5vh;
     font-weight: bold;
     text-align: center;
-    display: block;
+    display: none;
     z-index: 1000;
     transform: translate(-50%, -50%);
 }
+
+.neutralalert {
+    background-color: rgb(171, 165, 44)!important;
+  left: 30%!important; 
+  animation: fadeOutGood 5s forwards;
+}
+
 
 /* Stil för röd alert */
 .alert {
@@ -24,7 +31,7 @@
 
 /* Stil för grön alert */
 .goodalert {
-    background-color: green;
+    background-color: green!important;
     animation: fadeOutGood 5s forwards;
 }
 

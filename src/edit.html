@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Work Experience</title>
   <link rel="stylesheet" href="css/main.scss">
-  <script src="js/toggleMenu.js" defer></script>
-  <script  src="js/api.js"></script>
+  <script src="js/toggleMenu.js" ></script>
+  <script src="js/renderMessage.js" ></script>
+  <script src="js/api.js"></script>
   <script src="js/edit.js" defer></script>
-  
+
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         <h1>Edit Work Experience</h1>
         <div class="alert"></div>
         <form id="editForm">
-          <div class="form-group hidden" id="idfield" >
+          <div class="form-group hidden" id="idfield">
             <input type="text" id="id" name="id" class="hidden" readonly>
           </div>
           <div class="form-group">
@@ -57,8 +58,11 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" rows="4"></textarea>
           </div>
-          <button type="button" onclick="submitEditForm()">Save Changes</button>
+          <button type="button" id="submitbutton" onclick="submitEditForm()">Save Changes</button>
+          <button type="button" id="deletebutton" onclick="deletePost()">Delete Post</button>
+
         </form>
+
       </section>
     </div>
     <footer>
@@ -66,8 +70,7 @@
     </footer>
   </main>
 
-  
+
 </body>
 
 </html>
-

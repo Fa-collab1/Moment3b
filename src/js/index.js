@@ -1,62 +1,69 @@
-
-
 async function fetchAndDisplayWorkExperienceList() {
-    const workExperienceTableBody = document.getElementById('workExperienceTableBody');
-    const noWorkExperienceFound = document.getElementById('noWorkExperienceFound');
-    if (!workExperienceTableBody || !noWorkExperienceFound) return;
-
-    noWorkExperienceFound.innerHTML = '';
-    noWorkExperienceFound.style.display = 'none';
-
-    
-    const workExperienceList = await fetchWorkExperienceList();
-
-    
-    if (workExperienceTableBody) workExperienceTableBody.innerHTML = '';
-
-    
-    if (workExperienceList.length === 0) {
-        if (noWorkExperienceFound) {
-            noWorkExperienceFound.style.display = 'block';
-            noWorkExperienceFound.innerHTML = 'No work experience found.';
+    try {
+        const workExperienceListResponse = await fetchWorkExperience();
+        
+        if (workExperienceListResponse.success) {
+            const workExperienceList = workExperienceListResponse.data;
+            renderWorkExperienceList(workExperienceList);
+            renderMessage(workExperienceListResponse.status, "Work experience list loaded successfully.");
+        } else {
+            renderMessage(workExperienceListResponse.status, workExperienceListResponse.errors);
+            
         }
-        return;
+    } catch (error) {
+        console.error("Error fetching and displaying work experience list:", error.message);
+        renderMessage([], "An error occurred while fetching the work experience list.");
     }
+}
 
-    
-    workExperienceList.sort((a, b) => {
-        if (!a.enddate && b.enddate) return -1;
-        if (a.enddate && !b.enddate) return 1;
-        if (!a.enddate && !b.enddate || a.enddate && b.enddate) {
-            if (a.startdate > b.startdate) return -1;
-            if (a.startdate < b.startdate) return 1;
-        }
-        return 0;
-    });
+function renderWorkExperienceList(workExperienceList) {
+    const workExperienceTableBody = document.getElementById('workExperienceTableBody');
+    workExperienceTableBody.innerHTML = ''; // Clear previous data
 
-    
+// Sort the workExperienceList array
+workExperienceList.sort((a, b) => {
+    // Handle cases where enddate is null or undefined
+    if (!a.enddate && !b.enddate) {
+        // If both end dates are null or undefined, sort by start date
+        return new Date(b.startdate) - new Date(a.startdate);
+    } else if (!a.enddate) {
+        // If only a's end date is null or undefined, a comes first
+        return -1;
+    } else if (!b.enddate) {
+        // If only b's end date is null or undefined, b comes first
+        return 1;
+    } else {
+        // Sort by end date in descending order
+        return new Date(b.enddate) - new Date(a.enddate);
+    }
+});
+
     workExperienceList.forEach(workExperience => {
         const row = document.createElement('tr');
-
-        if (workExperience.enddate === null) {
-            workExperience.enddate = 'Ongoing';
-        }
-
-        if (workExperience.description === undefined || workExperience.description === null || workExperience.description === '') {
-            workExperience.description = '';
-        }
-
-        
         row.innerHTML = `
-            <td><a href="edit.html?id=${workExperience._id}">${workExperience.companyname}</a></td>
+           
+        
+        <td><a href="edit.html?id=${workExperience._id}">${workExperience.companyname}</a></td>
             <td>${workExperience.jobtitle}</td>
             <td>${workExperience.location}</td>
             <td>${workExperience.startdate}</td>
-            <td>${workExperience.enddate}</td>
-            <td>${workExperience.description}</td>
+            <td>${workExperience.enddate || 'Ongoing'}</td>
+            <td>${workExperience.description || ''}</td>
         `;
-        if (workExperienceTableBody) workExperienceTableBody.appendChild(row);
+        workExperienceTableBody.appendChild(row);
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', fetchAndDisplayWorkExperienceList);
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const s = urlParams.get('s');
+        
+        if (s && Number.isInteger(parseInt(s)) && parseInt(s) >= 1000 && parseInt(s) < 1003) {
+            renderMessage(parseInt(s), "");
+        }
+    
+});
