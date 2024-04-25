@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Beskrivning av projektet",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "start": "parcel src/index.html --no-cache",
+    "build": "parcel build src/index.html --dist-dir build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,14 +12,17 @@
   ],
   "author": "joni2307",
   "license": "ISC",
-  "Dependencies": {
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
     "@parcel/transformer-sass": "^2.11.0",
     "@parcel/watcher": "^2.4.1",
     "netlify-cli": "^17.15.1",
     "parcel": "^2.12.0",
     "sass": "^1.70.0",
-    "sharp": "^0.33.3"
-    
+    "sharp": "^0.33.3",
+    "node.js": "^0.0.1-security"
   },
   "browserslist": [
     "> 0.5%",
